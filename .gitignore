@@ -47,4 +47,4 @@ Temporary Items
 .apdisk
 
 #exclude node module
-node_module
+node_modules

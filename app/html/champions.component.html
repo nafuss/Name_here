@@ -1,0 +1,17 @@
+<div class="main">
+  <search [selectedChampion]='selectedChampion' (notify)=onFilter($event)></search>
+  <div class="nav">
+    <ul class="champions">
+      <li *ngFor="let champion of champions" (click)="onSelect(champion)" [class.selected]="champion === selectedChampion">
+        <div class="scrims"></div>
+        <img src="/app/ressource/LOL/{{champion.name}}/{{champion.name}}_0.jpg" alt="{{champion.name}}" class="champions_body" style="width:1215px;height:717px;"/>
+        <div class="complement">
+          <span class="badge">{{champion.id}}</span>{{champion.name}} - {{champion.nickname}}
+        </div>
+      </li>
+    </ul>
+  <div *ngIf="selectedChampion">
+    <my-champion-detail [selectedChampion]="selectedChampion" [isEmpty]="isEmpty"></my-champion-detail>
+  </div>
+</div>
+</div>

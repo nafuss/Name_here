@@ -1,0 +1,128 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+.selected {
+  position: relative;
+  background-color: #424242 !important;
+  color: #FFF;
+  z-index: 14;
+}
+.nav {
+  overflow-y: hidden;
+  display: flex;
+  height: 86vh;
+}
+.champions {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: #212121;
+  box-shadow: 2px 2px 10px #000;
+  height: 84vh;
+  z-index: 10;
+}
+.champions li {
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  color: #FFF;
+  height: 700px;
+  width: 20vw;
+  min-width: 250px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  box-shadow: 0px 4px 8px #000;
+  opacity: 0.7;
+  z-index: 16;
+}
+.champions li.selected {
+  box-shadow: 0px 2px 4px #000;
+  opacity: 1;
+  transform: scale(.9, .9);
+}
+.champions li.selected:hover {
+  transform: scale(.9, .9);
+  box-shadow: 0px 2px 4px #000;
+}
+.champions li:hover {
+  position: relative;
+  color: #FFF;
+  background-color: #303030;
+  left: .1em;
+  box-shadow: 0px 4px 24px #000;
+  transform: scale(1.1);
+  opacity: 1;
+  z-index: 22
+}
+
+.champion .select-back {
+  position: absolute;
+  width: 20px;
+  top: 5px;
+}
+.champions .text {
+  position: relative;
+  top: -3px;
+}
+.champions .badge {
+  display: inline-block;
+  font-size: small;
+  color: #FFF;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #000000;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+}
+.champions .complement {
+  position: absolute;
+  bottom: 10px;
+  right: 0px;
+  padding-right: 10px;
+  background-color: transparent;
+  color: #FFF;
+  border-left: 1px solid #000;
+  border-bottom: 1px solid #000;
+  z-index: 20;
+}
+.champions .scrims {
+  position: absolute;
+  top: 50%;
+  background: -webkit-linear-gradient(top, rgba(255,255,255,0), rgba(0,0,0,0.5)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(bottom, rgba(255,255,255,0), rgba(0,0,0,0.5)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(bottom, rgba(255,255,255,0), rgba(0,0,0,0.5)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(0,0,0,0.5)); /* Standard syntax (must be last)*/
+  width: 100%;
+  height: 50%;
+  z-index: 19;
+}
+.champions img{
+  position: relative;
+  left: -545px;
+  top:-5px;
+  transform: scale(0.7, 1);
+}
+
+/*Animations*/
+
+@keyframes hover{
+  from { transform: scale(1,1);}
+  to { transform: scale(1.1, 1.1);}
+}
+@keyframes selected{
+  from { transform: scale(1.10, 1.10);}
+  to { transform: scale(0.9,0.9);}
+}

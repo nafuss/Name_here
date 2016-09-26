@@ -1,0 +1,7 @@
+<div class="search">
+  <input type="text" placeholder="Search" id="search" [(ngModel)]="_search" name="search" (input)="search($event)">
+  <div class="champion-history">
+    <span *ngFor="let history of historyLogs" (click)="quickSelect(history)">{{history.name}}</span>
+  </div>
+  <button type="button" name="button" class="reset-button" *ngIf="" (click)="reset">Reset History</button>
+</div>

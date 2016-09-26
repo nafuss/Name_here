@@ -1,0 +1,95 @@
+<div class="detail" *ngIf="show">
+  <!-- <div class="stats" [hidden]="selectedSpell">
+    <div>
+      <h4>HP: </h4>
+      <p>{{champion.stats.health[0]}} - {{champion.stats.health[1]}}</p>
+    </div>
+    <div>
+      <h4>HP/5S: </h4>
+      <p>{{champion.stats.healthRegen[0]}} - {{champion.stats.healthRegen[1]}}</p>
+    </div>
+    <div>
+      <h4>AD: </h4>
+      <p>{{champion.stats.attackDamage[0]}} - {{champion.stats.attackDamage[1]}}</p>
+    </div>
+    <div>
+      <h4>AR: </h4>
+      <p>{{champion.stats.armor[0]}} - {{champion.stats.armor[1]}}</p>
+    </div>
+    <div>
+      <h4>AS: </h4>
+      <p>{{champion.stats.attackSpeed[0]}} - {{champion.stats.attackSpeed[1]}}</p>
+    </div>
+    <div>
+      <h4>MR: </h4>
+      <p>{{champion.stats.magicResist[0]}} - {{champion.stats.magicResist[1]}}</p>
+    </div>
+    <div>
+      <h4>MS: </h4>
+      <p>{{champion.stats.movementSpeed}}</p>
+    </div>
+  </div> -->
+
+  <img class="background" src="/app/ressource/LOL/{{champion.name}}/{{champion.name}}_{{selectedSkins}}.jpg" alt="{{champion.name}}" />
+  <div class="title">
+    <!-- <label>id:</label><span>{{champion.id}}</span>
+    <span>
+      <h2>{{champion.name}}</h2> - <h3>{{champion.nickname}}</h3>
+    </span> -->
+  </div>
+
+<!--  *ngIf="spellDescription" -->
+  <div class="spell-description" *ngIf="selectedSpell">
+    <span>
+      <img src="/app/ressource/LOL/{{champion.name}}/{{selectedSpell}}.png" alt="{{ champion.name }} {{ selectedSpell }}"/>
+      {{ selectedSpell }}
+    </span>
+
+    <div class="description">
+      {{champion.spells.E }}
+    </div>
+  </div>
+
+  <div class="low-bar">
+    <div class="level">
+      <label for="level">Display stats at level</label>
+      <input type="number" name="level" placeholder="Level" min="1" max="18" value="1" ([ngModel])="level" (input)="calculator($event)">
+    </div>
+    <div class="health-bar" style="background: -o-repeating-linear-gradient(right, black, black 0.1em, green 0, green {{strie}}%);background: -moz-repeating-linear-gradient(right, black, black 0.1em, green 0, green {{strie}}%);background: repeating-linear-gradient(right, black, black 0.1em, green 0, green {{strie}}%);background: -webkit-repeating-linear-gradient(left, black, black 0.1em, green 0, green {{strie}}%);">
+      <p>
+        {{ scale }}
+      </p>
+    </div>
+
+    <div class="spells-bar" (mouseleave)="deselect(selectedSpell)">
+      <span class="spell">
+        <img src="/app/ressource/LOL/{{champion.name}}/P.png" alt="{{champion.name}} Passive" (mouseover)="selectSpell('P')"/>
+      </span>
+      <span class="spell">
+        <img src="/app/ressource/LOL/{{champion.name}}/Q.png" alt="{{champion.name}} Q" (mouseover)="selectSpell('Q')" />
+      </span>
+      <span class="spell">
+        <img src="/app/ressource/LOL/{{champion.name}}/W.png" alt="{{champion.name}} W" (mouseover)="selectSpell('W')" />
+      </span>
+      <span class="spell">
+        <img src="/app/ressource/LOL/{{champion.name}}/E.png" alt="{{champion.name}} E" (mouseover)="selectSpell('E')" />
+      </span>
+      <span class="spell">
+        <img src="/app/ressource/LOL/{{champion.name}}/R.png" alt="{{champion.name}} R" (mouseover)="selectSpell('R')" />
+      </span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div *ngFor="let skin of champion.skins" class="skins-miniature">
+      <p class="title">{{skin.title}}</p>
+      <img src="/app/ressource/LOL/{{champion.name}}/{{champion.name}}_{{skin._id}}.jpg" alt="{{skin.title}}" class="champions_body" on-mouseover="skins(skin)"/>
+    </div>
+  </div>
+</div>
+<!-- <button (click)='goBack()'>Back</button> -->
+<div class="empty" *ngIf="isEmpty">
+  <p>
+    Oops! It look like u are searching something inexistant, try something else! {{isEmpty}}
+  </p>
+</div>
